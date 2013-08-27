@@ -5,24 +5,35 @@
 # 
 # By considering the terms in the Fibonacci sequence 
 # whose values do not exceed four million, find the sum of the even-valued terms.
+#
+# Brutforce method
 
-def fib_less(value)
-prev = 0
-curr = 1
-sum = 0
 
-  begin
-    puts "PREV: " + prev.to_s + " CURR: " + curr.to_s
-    temp = curr
-    sum += curr if curr % 2 == 0
-    curr += prev
-    prev = temp
-    #sum += val
-    #puts sum.to_s + " " + val.to_s
-    #val = sum
-    #puts "prev: " + prev.to_s + " curr: " + curr.to_s + " sum: " + sum.to_s
-    puts " sum: " + sum.to_s
-  end  while prev < value
-end 
+require "benchmark"
 
-puts fib_less(4000000)
+def measure
+  time = Benchmark.measure do
+    yield
+  end
+  puts time
+end
+
+measure do
+  def fib_less(value)
+    prev = 0
+    curr = 1
+    sum = 0
+
+    begin
+#      puts "PREV: " + prev.to_s + " CURR: " + curr.to_s
+      temp = curr
+      sum += curr if curr % 2 == 0
+      curr += prev
+      prev = temp
+
+    end  while prev < value
+    return sum
+  end 
+
+  puts fib_less(4000000)
+end
