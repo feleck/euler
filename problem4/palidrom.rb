@@ -23,16 +23,11 @@ measure do
     while x > 99 do
       y = z
       while y > 99 do
-        #print "#{x} * #{y} = #{x * y} \n"
         if is_palidrome?(x * y)
-          #print "#{x} * #{y} = #{x * y}\n"
           palidromes << x * y
           break
-          #return "#{x} * #{y} is palidrome: #{x*y}\n"
         end
         y -= 1
-        #print palidromes.to_s
-        #x -= 1
       end
       x -= 1
     end
