@@ -17,11 +17,11 @@ end
 measure do
 
   def test(max)
-    number = max
+    number = max*max
     div = max-1
 
     while true do
-      while div >= 4 do
+      while div >= 11 do
         if number % div == 0
           divides = true
           div -= 1
@@ -39,6 +39,21 @@ measure do
       end
     end
   end
+
+
+# copied from forum!!!
+  def snd(max) 
+    result = 1 
+    for n in 1..max 
+      prev = result 
+      while result % n > 0 
+        result += prev 
+      end 
+    end 
+    return result 
+  end 
+
+  #puts snd(20)
  
   puts test(20)
   
