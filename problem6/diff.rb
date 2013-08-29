@@ -10,6 +10,15 @@
 # Find the difference between the sum of the squares 
 # of the first one hundred natural numbers and the square of the sum.
 #
+# MATHS:
+=begin
+  suma kwadratów kolejnych liczb nat.
+  n*(n+1)*(2*n+1)/6
+
+  suma ciągu arytm.
+  n*(a1 + an)/2
+  
+=end
 
 require "benchmark"
 
@@ -28,15 +37,15 @@ measure do
     return sq_sum - sum_sq
   end
 
+  def brute(value)
+    sum, variable = 0, 0 
+    value.downto(1) { |x| sum+=x; variable += (x*x) } 
+    sum_square = sum*sum 
+    puts sum_square - variable
+  end
+  
   puts test(100)
+  #brute(100)
   
 end
 
-=begin
-  suma kwadratów kolejnych liczb nat.
-  n*(n+1)*(2*n+1)/6
-
-  suma ciągu arytm.
-  n*(a1 + an)/2
-  
-=end
