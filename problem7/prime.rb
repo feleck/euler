@@ -14,7 +14,10 @@ def is_prime?(value)
   false
 end
 
-# SITO 
+# Sito Atkina!!!
+
+
+# SITO Eratostenesa
 # ze zbioru liczb naturalnych z przedziału [2,n], tj. {2, 3, 4, ..., n}, wybieramy najmniejszą, 
 # czyli 2, i wykreślamy wszystkie jej wielokrotności większe od niej samej, to jest 4, 6, 8, ....
 # Wykreślanie powtarzamy do momentu, gdy liczba i, której wielokrotność wykreślamy, 
@@ -40,17 +43,21 @@ end
 
 
 def find_prime_nr(prime_nr)
+  puts prime_nr
   primes = generate_primes(prime_nr)
-  #i = 1
+  puts primes.to_s
+  i = 1
   while primes.length < prime_nr do
-    primes << i if is_prime?(i) 
+ #   primes << i if is_prime?(i) 
     i += 1
   end
   return primes.last
 end
 
+#find_prime_nr(6)
 
-#puts generate_primes(17).to_s
+test = generate_primes(100000) # 100000 - long enought
+puts test.length
 #puts is_prime?(17)
 #puts find_prime_nr(1)
 
